@@ -1,6 +1,6 @@
 ﻿namespace Crud_Registros_EntityFramework
 {
-    partial class Form1
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.

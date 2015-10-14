@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Crud_Registros_EntityFramework
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
-        public Form1()
+        public Menu()
         {
             InitializeComponent();
+            CenterToScreen();
         }
     }
 }
