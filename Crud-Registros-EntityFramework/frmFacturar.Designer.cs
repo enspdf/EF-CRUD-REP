@@ -35,13 +35,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtValorTotal = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgFactura = new System.Windows.Forms.DataGridView();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCalcular = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.cbVendedor = new System.Windows.Forms.ComboBox();
@@ -73,7 +71,7 @@
             // 
             this.txtCantidad.Location = new System.Drawing.Point(141, 47);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(162, 20);
+            this.txtCantidad.Size = new System.Drawing.Size(239, 20);
             this.txtCantidad.TabIndex = 2;
             // 
             // label2
@@ -103,30 +101,23 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(243, 115);
+            this.btnEliminar.Location = new System.Drawing.Point(229, 115);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(123, 23);
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(162, 115);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 16;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(81, 115);
+            this.btnAgregar.Location = new System.Drawing.Point(54, 115);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(124, 23);
             this.btnAgregar.TabIndex = 15;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // dgFactura
             // 
@@ -160,15 +151,6 @@
             this.ValorTotal.HeaderText = "Valor Total";
             this.ValorTotal.Name = "ValorTotal";
             this.ValorTotal.ReadOnly = true;
-            // 
-            // btnCalcular
-            // 
-            this.btnCalcular.Location = new System.Drawing.Point(309, 45);
-            this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(71, 23);
-            this.btnCalcular.TabIndex = 19;
-            this.btnCalcular.Text = "Calcular";
-            this.btnCalcular.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -228,6 +210,7 @@
             this.btnGuardar.TabIndex = 26;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frmFacturar
             // 
@@ -241,10 +224,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.dgFactura);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtValorTotal);
             this.Controls.Add(this.label3);
@@ -253,7 +234,8 @@
             this.Controls.Add(this.cbProducto);
             this.Controls.Add(this.label1);
             this.Name = "frmFacturar";
-            this.Text = "frmFacturar";
+            this.Text = "Factura";
+            this.Load += new System.EventHandler(this.frmFacturar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -269,13 +251,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtValorTotal;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorTotal;
-        private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.ComboBox cbVendedor;
