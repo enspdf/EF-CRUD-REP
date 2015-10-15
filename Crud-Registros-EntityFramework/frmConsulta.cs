@@ -53,10 +53,6 @@ namespace Crud_Registros_EntityFramework
                                  Factura = det.Factura.CodFactura
                              }).ToList();
 
-                //var query = context.DetalleFactura.Where(
-                //    x => x.Factura.CodCliente == ((Cliente)cbCliente.SelectedItem).CodCliente
-                //    && x.CodProducto == ((Producto)cbProducto.SelectedItem).CodProducto).ToList();
-
                 dgConsulta.DataSource = null;
                 dgConsulta.DataSource = lista;
                 dgConsulta.Refresh();

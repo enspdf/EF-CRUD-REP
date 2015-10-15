@@ -45,6 +45,8 @@
             this.CodigoAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorMatricula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatosAlumnos)).BeginInit();
             this.SuspendLayout();
@@ -83,12 +85,15 @@
             this.CodigoAlumno,
             this.ValorMatricula,
             this.NombreApellido,
+            this.Nombre,
+            this.Apellido,
             this.Direccion});
             this.dgDatosAlumnos.Location = new System.Drawing.Point(19, 246);
             this.dgDatosAlumnos.Name = "dgDatosAlumnos";
             this.dgDatosAlumnos.ReadOnly = true;
             this.dgDatosAlumnos.Size = new System.Drawing.Size(487, 249);
             this.dgDatosAlumnos.TabIndex = 3;
+            this.dgDatosAlumnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatosAlumnos_CellClick);
             // 
             // txtNombreAlumno
             // 
@@ -175,6 +180,7 @@
             // 
             // CodigoAlumno
             // 
+            this.CodigoAlumno.DataPropertyName = "CodigoAlumno";
             this.CodigoAlumno.HeaderText = "Código Alumno";
             this.CodigoAlumno.Name = "CodigoAlumno";
             this.CodigoAlumno.ReadOnly = true;
@@ -182,6 +188,7 @@
             // 
             // ValorMatricula
             // 
+            this.ValorMatricula.DataPropertyName = "ValorMatricula";
             this.ValorMatricula.HeaderText = "Valor Matricula";
             this.ValorMatricula.Name = "ValorMatricula";
             this.ValorMatricula.ReadOnly = true;
@@ -189,13 +196,31 @@
             // 
             // NombreApellido
             // 
+            this.NombreApellido.DataPropertyName = "NombreApellido";
             this.NombreApellido.HeaderText = "Nombre y Apellido";
             this.NombreApellido.Name = "NombreApellido";
             this.NombreApellido.ReadOnly = true;
             this.NombreApellido.Width = 120;
             // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Visible = false;
+            // 
+            // Apellido
+            // 
+            this.Apellido.DataPropertyName = "Apellido";
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            this.Apellido.Visible = false;
+            // 
             // Direccion
             // 
+            this.Direccion.DataPropertyName = "Direccion";
             this.Direccion.HeaderText = "Dirección";
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
@@ -247,6 +272,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoAlumno;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorMatricula;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreApellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
     }
 }

@@ -23,9 +23,17 @@ namespace Crud_Alumnos
         {
             using (var context = new EntidadesAlumnos())
             {
-                dgDatosAlumnos.DataSource = (from q in context.Alumno
-                                             from w in context.Matricula
-                                             select new { q, w }).ToList();
+                var alumnos = (from alu in context.Matricula
+                               select new
+                               {
+                                   CodigoAlumno = alu.Alumno.CodAlumno,
+                                   ValorMatricula = alu.ValorMatricula,
+                                   NombreApellido = alu.Alumno.Nombre + " " + alu.Alumno.Apellido,
+                                   Nombre = alu.Alumno.Nombre,
+                                   Apellido = alu.Alumno.Apellido,
+                                   Direccion = alu.Alumno.Direccion
+                               }).ToList();
+                dgDatosAlumnos.DataSource = alumnos;
                 dgDatosAlumnos.Refresh();
             }
         }
@@ -67,11 +75,28 @@ namespace Crud_Alumnos
 
                 context.SaveChanges();
 
-                MessageBox.Show("El estudiante " + txtNombreAlumno.Text + " " + txtApellidoAlumno + " ha sido registrado satsfactoriamente");
+                MessageBox.Show("El estudiante " + txtNombreAlumno.Text + " " + txtApellidoAlumno.Text + " ha sido registrado satsfactoriamente");
 
                 CargarDatos();
                 Limpiar();
             }
+        }
+
+        private void dgDatosAlumnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indice = e.RowIndex;
+            
+                Alumno alumno = ((Alumno)dgDatosAlumnos.Rows[indice].DataBoundItem);
+                //Matricula matricula = ((Matricula)dgDatosAlumnos.Rows[indice].DataBoundItem);
+
+                txtNombreAlumno.Text = alumno.Nombre;
+                txtApellidoAlumno.Text = alumno.Apellido;
+                txtCodigoAlumno.Text = alumno.CodAlumno.ToString();
+                txtDireccionAlumno.Text = alumno.Direccion;
+                txtValorMatricula.Text = alumno.Matricula.ToString();
+                //txtValorMatricula.Text = matricula.ValorMatricula.ToString();
+
+            
         }
 
 
