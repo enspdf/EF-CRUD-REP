@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="981c1d40b04a4f63839907748facc0a5" Name="Diagram1">
+        <EntityTypeShape EntityType="VentasModel.Cliente" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentasModel.DetalleFactura" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentasModel.Factura" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentasModel.Producto" Width="1.5" PointX="6.125" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentasModel.Vendedor" Width="1.5" PointX="0.625" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="VentasModel.FK_Factura_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="VentasModel.FK_DetalleFactura_Factura" ManuallyRouted="false" />
+        <AssociationConnector Association="VentasModel.FK_DetalleFactura_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="VentasModel.FK_Factura_Vendedor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
