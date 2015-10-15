@@ -12,6 +12,8 @@ namespace Crud_Registros_EntityFramework
 {
     public partial class frmFacturar : Form
     {
+        public List<DetalleFactura> ListaDetalles = new List<DetalleFactura>();
+
         public frmFacturar()
         {
             InitializeComponent();
@@ -51,24 +53,42 @@ namespace Crud_Registros_EntityFramework
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            dgFactura.Rows.Add(cbProducto.Text, txtCantidad.Text, txtValorTotal.Text);
+            ListaDetalles.Add(new DetalleFactura 
+            {
+                CodProducto = ((Producto)cbProducto.SelectedItem).CodProducto,
+                Cantidad = Convert.ToInt32(txtCantidad.Text),
+                VlrTotal = Convert.ToInt32(txtValorTotal.Text)
+            });
+
             Limpiar();
-            int result = dgFactura.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToInt32(x.Cells["ValorTotal"].Value));
-            txtTotal.Text = result.ToString();
+            dgFactura.DataSource = null;
+            dgFactura.DataSource = ListaDetalles;
+            dgFactura.Refresh();
+            txtTotal.Text = ListaDetalles.Sum(x => x.VlrTotal).ToString();
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int fila = dgFactura.CurrentRow.Index;
-            dgFactura.Rows.RemoveAt(fila);
-            int result = dgFactura.Rows.Cast<DataGridViewRow>().Sum(x => Convert.ToInt32(x.Cells["ValorTotal"].Value));
-            txtTotal.Text = result.ToString();
+            if (fila > 0)
+            {
+                ListaDetalles.RemoveAt(fila);
+                Limpiar();
+                dgFactura.DataSource = null;
+                dgFactura.DataSource = ListaDetalles;
+                MessageBox.Show("El registro se ha eliminado correctamente");
+                dgFactura.Refresh();
+                txtTotal.Text = ListaDetalles.Sum(x => x.VlrTotal).ToString();
+            }
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             using (var context = new EntidadesVentas())
             {
+
                 Factura oFactura = new Factura()
                 {
                     CodVendedor = Convert.ToInt32(cbVendedor.SelectedValue),
@@ -76,19 +96,13 @@ namespace Crud_Registros_EntityFramework
                     VlrTotal = Convert.ToInt32(txtTotal.Text)
                 };
 
-
-                
-                    DetalleFactura oDetalleFactura = new DetalleFactura()
-                    {
-                        CodFactura = 1,
-                        CodProducto = Convert.ToInt32("1"),
-                        Cantidad = Convert.ToInt32(dgFactura.CurrentRow.Cells["Cantidad"].Value),
-                        VlrTotal = Convert.ToInt32(txtTotal.Text)
-                    };
-                
+                foreach (var item in ListaDetalles)
+                {
+                    item.CodFactura = oFactura.CodFactura;
+                    oFactura.DetalleFactura.Add(item);
+                }
 
                 context.Factura.Add(oFactura);
-                context.DetalleFactura.Add(oDetalleFactura);
 
                 context.SaveChanges();
                 MessageBox.Show("Factura guardada correctamente");
