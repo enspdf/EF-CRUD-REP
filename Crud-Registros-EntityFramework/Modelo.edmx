@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VentasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VentasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="CodCliente" />
@@ -46,7 +46,9 @@
           <Property Name="NombreCompleto" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_DetalleFactura_Factura">
-          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Factura">
@@ -58,7 +60,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DetalleFactura_Producto">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
@@ -70,7 +74,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Factura_Cliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
@@ -82,7 +88,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Factura_Vendedor">
-          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1" />
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vendedor">
@@ -116,8 +124,7 @@
             <End Role="Factura" EntitySet="Factura" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VentasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
