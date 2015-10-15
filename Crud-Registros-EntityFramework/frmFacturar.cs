@@ -15,6 +15,7 @@ namespace Crud_Registros_EntityFramework
         public frmFacturar()
         {
             InitializeComponent();
+            this.CenterToScreen();
         }
     }
 }
