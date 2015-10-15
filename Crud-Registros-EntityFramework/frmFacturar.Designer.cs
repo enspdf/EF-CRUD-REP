@@ -37,6 +37,9 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgFactura = new System.Windows.Forms.DataGridView();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.cbVendedor = new System.Windows.Forms.ComboBox();
@@ -44,9 +47,6 @@
             this.cbCliente = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             // 
             // cbProducto
             // 
+            this.cbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProducto.FormattingEnabled = true;
             this.cbProducto.Location = new System.Drawing.Point(141, 14);
             this.cbProducto.Name = "cbProducto";
@@ -134,6 +135,27 @@
             this.dgFactura.Size = new System.Drawing.Size(361, 105);
             this.dgFactura.TabIndex = 18;
             // 
+            // Producto
+            // 
+            this.Producto.DataPropertyName = "CodProducto";
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // ValorTotal
+            // 
+            this.ValorTotal.DataPropertyName = "VlrTotal";
+            this.ValorTotal.HeaderText = "Valor Total";
+            this.ValorTotal.Name = "ValorTotal";
+            this.ValorTotal.ReadOnly = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -145,6 +167,7 @@
             // 
             // txtTotal
             // 
+            this.txtTotal.Enabled = false;
             this.txtTotal.Location = new System.Drawing.Point(277, 257);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(103, 20);
@@ -152,6 +175,7 @@
             // 
             // cbVendedor
             // 
+            this.cbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVendedor.FormattingEnabled = true;
             this.cbVendedor.Location = new System.Drawing.Point(141, 289);
             this.cbVendedor.Name = "cbVendedor";
@@ -169,6 +193,7 @@
             // 
             // cbCliente
             // 
+            this.cbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Location = new System.Drawing.Point(141, 322);
             this.cbCliente.Name = "cbCliente";
@@ -193,27 +218,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // Producto
-            // 
-            this.Producto.DataPropertyName = "CodProducto";
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // ValorTotal
-            // 
-            this.ValorTotal.DataPropertyName = "VlrTotal";
-            this.ValorTotal.HeaderText = "Valor Total";
-            this.ValorTotal.Name = "ValorTotal";
-            this.ValorTotal.ReadOnly = true;
             // 
             // frmFacturar
             // 
